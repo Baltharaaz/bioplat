@@ -5,6 +5,11 @@ import { type RouteConfig,
     route} from "@react-router/dev/routes";
 
 export default [
-    index("routes/home.tsx"),
-    route("jobs/:jobID", "jobs/report.tsx")
+    layout("components/navbar.tsx", [
+        index("routes/home.tsx"),
+        route("jobs/:jobID", "jobs/report.tsx"),
+        route("about", "about/about.tsx"),
+    ]),
+
+    route("jobs/newJob", "jobs/newJob.tsx"),
 ] satisfies RouteConfig;

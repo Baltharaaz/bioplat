@@ -10,25 +10,25 @@ export function Welcome() {
             <img
               src={logoLight}
               alt="React Router"
-              className="block w-full dark:hidden"
+              className="block w-full"
             />
             <img
               src={logoDark}
               alt="React Router"
-              className="hidden w-full dark:block"
+              className="hidden w-full"
             />
           </div>
         </header>
         <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
-            <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
+          <nav className="rounded-3xl border border-gray-200 p-6 space-y-4">
+            <p className="leading-6 text-gray-700 text-center">
               What&apos;s next?
             </p>
             <ul>
               {resources.map(({ href, text, icon }) => (
                 <li key={href}>
                   <a
-                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
+                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline"
                     href={href}
                     target="_blank"
                     rel="noreferrer"
