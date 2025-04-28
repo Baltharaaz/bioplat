@@ -49,7 +49,7 @@ export default function Form({ route, method }: {route: string; method: string }
                 className="w-9/10 p-2.5 m-2.5 border-solid border-1 border-black rounded-sm box-border text-black"
                 type="text"
                 value={email}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
             />)}
             <input

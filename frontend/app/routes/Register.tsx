@@ -1,11 +1,10 @@
 import Form from "~/components/Form"
 
 
-export function Register(){
+export default function Register(){
     localStorage.clear()
+    window.dispatchEvent(new CustomEvent("register"))
     return(
-        <>
-            <Form route="/api/user/register/" method="register" />
-        </>
+        <Form route="/api/user/register" method="register" />
     )
 }
