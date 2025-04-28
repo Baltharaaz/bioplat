@@ -7,9 +7,11 @@ import { type RouteConfig,
 export default [
     layout("components/navbar.tsx", [
         index("routes/home.tsx"),
-        route("jobs/:jobID", "jobs/report.tsx"),
         route("about", "about/about.tsx"),
+        route("login", "routes/login.tsx"),
+        route("logout", "routes/logout.tsx"),
+        route("register", "routes/Register.tsx"),
+        route("account", "routes/account.tsx"),
     ]),
 
-    route("jobs/newJob", "jobs/newJob.tsx"),
 ] satisfies RouteConfig;

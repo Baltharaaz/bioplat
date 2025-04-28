@@ -1,49 +1,46 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
+import {terminal} from "virtual:terminal";
 
-export function Welcome() {
+
+
+export function Welcome({children, token} : {children : React.ReactNode, token: string})  {
+  const curToken = token;
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <header className="flex flex-col items-center gap-9">
-          <div className="w-[500px] max-w-[100vw] p-4">
-            <img
-              src={logoLight}
-              alt="React Router"
-              className="block w-full"
-            />
-            <img
-              src={logoDark}
-              alt="React Router"
-              className="hidden w-full"
-            />
-          </div>
-        </header>
-        <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 space-y-4">
-            <p className="leading-6 text-gray-700 text-center">
-              What&apos;s next?
-            </p>
-            <ul>
-              {resources.map(({ href, text, icon }) => (
-                <li key={href}>
-                  <a
-                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {icon}
-                    {text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
+      <main className="flex items-center justify-center pt-16 pb-4">
+        {!curToken && (
+            <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
+              <header className="flex flex-col items-center gap-9">
+                <div className="w-[500px] max-w-[100vw] p-4">
+                  <h1 className="text-black text-xl">Welcome to the bioplatform.</h1>
+                </div>
+              </header>
+              <div className="max-w-[300px] w-full space-y-6 px-4">
+                <nav className="rounded-3xl border border-gray-200 p-6 space-y-4">
+                  <p className="leading-6 text-gray-700 text-center">
+                  </p>
+                  {children}
+                  <ul>
+                  </ul>
+                </nav>
+              </div>
+            </div>)}
+        {curToken && (
+            <div className="flex flex-col items-center gap-9">
+              <h1>
+                <div>
+                  <img alt="">
+
+                  </img>
+                </div>
+                <div>
+
+                </div>
+              </h1>
+
+            </div>)}
     </main>
-  );
+  )
 }
 
 const resources = [
