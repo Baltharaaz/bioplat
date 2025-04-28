@@ -1,0 +1,13 @@
+asgiref
+django~=5.2
+django-cors-headers
+djangorestframework~=3.16.0
+djangorestframework-simplejwt
+pyjwt
+pytz
+sqlparse
+psycopg
+python-dotenv~=1.1.0
+matplotlib~=3.10.1
+networkx~=3.4.2
+biopython~=1.85
