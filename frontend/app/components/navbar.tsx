@@ -121,11 +121,6 @@ export default function Navbar({loaderData, actionData} : Route.ComponentProps) 
                         </li>)}
                     </ul>
                 </nav>
-                <form onSubmit={handleSubmit}>
-                    <button className="text-black" type="submit">
-                        Dis da button
-                    </button>
-                </form>
             </div>
             <Outlet/>
         </>

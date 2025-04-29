@@ -1,6 +1,7 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 import {terminal} from "virtual:terminal";
+import {ACCESS_TOKEN} from "~/constants";
 
 
 
@@ -28,6 +29,7 @@ export function Welcome({children, token} : {children : React.ReactNode, token: 
         {curToken && (
             <div className="flex flex-col items-center gap-9">
               <h1>
+                You now have access to the bioplatform.
                 <div>
                   <img alt="">
 

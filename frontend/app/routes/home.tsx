@@ -1,7 +1,8 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "~/welcome/welcome";
-import {ProtectedRoute} from "~/components/ProtectedRoute"
+import {ProtectedRoute} from "~/routes/ProtectedRoute"
 import {ACCESS_TOKEN, REFRESH_TOKEN} from "~/constants";
+import api from "~/api";
 import {Outlet} from "react-router";
 import {useState} from "react";
 import { terminal } from "virtual:terminal"

@@ -1,9 +1,12 @@
-import {redirect} from "react-router"
+import {Navigate} from "react-router"
 import {jwtDecode } from "jwt-decode"
 import api from '../api'
 import { REFRESH_TOKEN, ACCESS_TOKEN} from "~/constants"
 import { useState, useEffect } from "react"
 import { terminal } from "virtual:terminal"
+
+/* This functionality handles protecting certain routes from access by the end user if not authorized (ex: navigating
+*   to the account page while not being logged in). */
 
 
 export function ProtectedRoute({children}: { children: React.ReactNode }) {
@@ -53,5 +56,5 @@ export function ProtectedRoute({children}: { children: React.ReactNode }) {
         return <div>Loading... </div>
     }
 
-    return isAuthorized ? <>{children}</> : redirect("/login")
+    return isAuthorized ? <>{children}</> : <Navigate to="/login" />
 }

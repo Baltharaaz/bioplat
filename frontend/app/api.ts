@@ -11,7 +11,8 @@ api.interceptors.request.use(
         if(typeof window !== "undefined") {
             const token = sessionStorage.getItem(ACCESS_TOKEN);
             if(token){
-                config.headers.Authorization = `Bearer ${token}`
+                config.headers.Authorization = `Bearer ${token}`;
+                terminal.log(config.headers.Authorization);
             }
         }
         return config;
