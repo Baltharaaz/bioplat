@@ -16,38 +16,48 @@ class JobListCreate(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Job.objects.filter(author=user)
+        return Job.objects.filter(author=user).order_by("-created_at")
 
     def perform_create(self, serializer):
         if serializer.is_valid():
-            to_align = serializer.data['unaligned']
-            id = serializer.data['id']
+            to_align = serializer.validated_data['unaligned']
+            name = serializer.validated_data['name']
             aligned = False
             tree_path = False
 
-            with open(f"{id}.fasta", "w") as f:
+            with open(f"./jobfiles/{name}.fasta", "w") as f:
                 f.write(to_align)
-                exe_location = r"C:\Program Files (x86)\ClustalW2\clustalw2.exe"
-                cmd = exe_location +  " -infile=temp.fasta"
-                assert os.path.isfile(f"./jobfiles/{id}.fasta"), f"{id}.fasta does not exist"
-                try:
-                    results = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True)
-                    tree_path = os.path.abspath("./jobfiles/{id}.dnd")
-                except subprocess.CalledProcessError as e:
-                    print(e)
-                finally:
-                    f.close()
+                f.close()
+            cmd = f"clustalw2.exe -infile=./jobfiles/{name}.fasta"
+            assert os.path.isfile(f"./jobfiles/{name}.fasta"), f"{name}.fasta does not exist"
+            try:
+                results = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True)
+            except subprocess.CalledProcessError as e:
+                print(e)
 
 
-            tree = PhyloTree(f"{id}.dnd")
-            with open(f"./jobfiles/{id}.aln", "r") as f:
+            tree = PhyloTree(f"./jobfiles/{name}.dnd")
+            tree.render(f"./jobfiles/{name}.png")
+            tree_path = os.path.abspath(f"./jobfiles/{name}.png")
+            with open(f"./jobfiles/{name}.aln", "r") as f:
                 aligned = f.read()
-
+                f.close()
 
             serializer.save(author=self.request.user, aligned=aligned, phylo=tree_path)
+            os.remove(f"./jobfiles/{name}.aln")
+            os.remove(f"./jobfiles/{name}.fasta")
+            os.remove(f"./jobfiles/{name}.dnd")
 
         else:
             print(serializer.errors)
+
+class JobDelete(generics.DestroyAPIView):
+    serializer_class = JobSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Job.objects.filter(author=user).order_by("-created_at")
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()

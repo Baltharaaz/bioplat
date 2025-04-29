@@ -23,8 +23,8 @@ class GroupSerializer(serializers.ModelSerializer):
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ['id', 'unaligned', 'aligned', 'unaligned_one_line', 'type', 'author']
-        extra_kwargs = {'author': {'read_only': True}, 'aligned': {'read_only': True}}
+        fields = ['id', 'name', 'unaligned', 'aligned', 'phylo', 'author']
+        extra_kwargs = {'author': {'read_only': True}, 'aligned': {'read_only': True}, 'phylo': {'read_only': True}}
 
 
 

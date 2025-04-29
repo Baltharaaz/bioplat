@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Job(models.Model):
+    name = models.TextField()
     unaligned = models.TextField()
     aligned = models.TextField()
     phylo = models.TextField()
