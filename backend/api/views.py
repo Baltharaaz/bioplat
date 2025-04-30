@@ -37,8 +37,8 @@ class JobListCreate(generics.ListCreateAPIView):
 
 
             tree = PhyloTree(f"./jobfiles/{name}.dnd")
-            tree.render(f"./jobfiles/{name}.png")
-            tree_path = os.path.abspath(f"./jobfiles/{name}.png")
+            tree.render(f"../frontend/public/{name}.png")
+            tree_path = f"{name}.png"
             with open(f"./jobfiles/{name}.aln", "r") as f:
                 aligned = f.read()
                 f.close()
@@ -58,6 +58,14 @@ class JobDelete(generics.DestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return Job.objects.filter(author=user).order_by("-created_at")
+
+class JobDetail(generics.RetrieveAPIView):
+    serializer_class = JobSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get_queryset(self):
+        user = self.request.user
+        return Job.objects.filter(author=user).order_by("-created_at")
+
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()

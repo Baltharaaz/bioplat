@@ -2,6 +2,7 @@ import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 import {terminal} from "virtual:terminal";
 import {ACCESS_TOKEN} from "~/constants";
+import {ProtectedRoute} from "~/routes/ProtectedRoute";
 
 
 
@@ -26,7 +27,7 @@ export function Welcome({children, token} : {children : React.ReactNode, token: 
                 </nav>
               </div>
             </div>)}
-        {curToken && (
+        {curToken && (<ProtectedRoute>
             <div className="flex flex-col items-center gap-9">
               <h1>
                 You now have access to the bioplatform.
@@ -40,7 +41,8 @@ export function Welcome({children, token} : {children : React.ReactNode, token: 
                 </div>
               </h1>
 
-            </div>)}
+            </div>
+          </ProtectedRoute>)}
     </main>
   )
 }

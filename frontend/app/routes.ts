@@ -12,6 +12,7 @@ export default [
         route("logout", "routes/logout.tsx"),
         route("account", "routes/account.tsx"),
         route("register", "routes/register.tsx"),
+        route("jobs/:jobId", "routes/jobdetails.tsx"),
     ]),
 
 ] satisfies RouteConfig;
