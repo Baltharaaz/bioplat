@@ -15,6 +15,7 @@ Please clone the repository and execute ```npm install``` in the frontend direct
     - Djangorestframework-simplejtw
     - Biopy
     - ETE3
+
 Additionally, the application is currently reliant on the existence of command line executables corresponding to implemented MSA methods. At the moment, this is only ClustalW2. Please ensure that you have installed [ClustalW2](http://www.clustal.org/clustal2/) and added the executable to your device's path to ensure no issues with the Django back-end application.
 
 
