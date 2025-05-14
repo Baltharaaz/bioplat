@@ -20,7 +20,7 @@ Additionally, the application is currently reliant on the existence of command l
 
 
 <img width="1879" alt="Image" src="https://github.com/user-attachments/assets/7a6b4971-a090-4049-93c3-bd7ee12b5a1d" />
-An example of a resulting sequence alignment from a multiple sequence alignment job run on the bioplatform, generated from the resulting Newick tree file using ETE3's tree object and render function.
+An example of a resulting sequence alignment from a multiple sequence alignment job run on the bioplatform.
 
 
 
