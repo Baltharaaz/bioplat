@@ -21,7 +21,7 @@ Additionally, the application is currently reliant on the existence of command l
 ## Execution
 Ensure that a PostgreSQL server is running on your environment and the ```settings.py``` file is properly configured to connect in the backend. Run ```python manage.py startserver``` in the back-end directory to launch the back-end Django application. Run ```npm run dev``` in the front-end directory to launch the web platform. You can navigate to API endpoints using localhost:8000, and you can find the web application at localhost:5173 by default.
 
-##Images
+## Images
 
 
 <img width="1879" alt="Image" src="https://github.com/user-attachments/assets/7a6b4971-a090-4049-93c3-bd7ee12b5a1d" />
