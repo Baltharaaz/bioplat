@@ -19,7 +19,10 @@ Additionally, the application is currently reliant on the existence of command l
 
 
 <img width="1879" alt="Image" src="https://github.com/user-attachments/assets/7a6b4971-a090-4049-93c3-bd7ee12b5a1d" />
-An example of a phylogenetic tree from a multiple sequence alignment run on the bioplatform, generated from the resulting Newick tree file using ETE3's tree object and render function.
+An example of a resulting sequence alignment from a multiple sequence alignment job run on the bioplatform, generated from the resulting Newick tree file using ETE3's tree object and render function.
+
+<img width="1879" alt="Image" src="https://github.com/user-attachments/assets/a8c6aad8-2713-43aa-8491-a70e3e1e309e" />
+An example of a phylogenetic tree from the same MSA job, generated from the resulting Newick tree file using ETE3's tree object and render function.
 
 ## Future considerations
 - For the back-end environment, the development and addition of a specialized deep learning MSA approach would be ideal, though it ultimately was beyond the capabilities and scope of this application. To accomplish this, additional research into the deep learning MSA space should be conducted to potentially select and incorporate a proper existing solution that avoids the limitations of existing deep learning MSA approaches. If that fails, research into the correct deep learning neural network architecture should be conducted. Once chosen, that architecture should be extensively tested and trained on real world biological data cultivated by domain experts to ensure applicability to real life worldsets.
