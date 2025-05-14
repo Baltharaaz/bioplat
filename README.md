@@ -18,6 +18,11 @@ Please clone the repository and execute ```npm install``` in the frontend direct
 
 Additionally, the application is currently reliant on the existence of command line executables corresponding to implemented MSA methods. At the moment, this is only ClustalW2. Please ensure that you have installed [ClustalW2](http://www.clustal.org/clustal2/) and added the executable to your device's path to ensure no issues with the Django back-end application.
 
+## Execution
+Ensure that a PostgreSQL server is running on your environment and the ```settings.py``` file is properly configured to connect in the backend. Run ```python manage.py startserver``` in the back-end directory to launch the back-end Django application. Run ```npm run dev``` in the front-end directory to launch the web platform. You can navigate to API endpoints using localhost:8000, and you can find the web application at localhost:5173 by default.
+
+##Images
+
 
 <img width="1879" alt="Image" src="https://github.com/user-attachments/assets/7a6b4971-a090-4049-93c3-bd7ee12b5a1d" />
 An example of a resulting sequence alignment from a multiple sequence alignment job run on the bioplatform.
